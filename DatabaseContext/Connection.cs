@@ -30,7 +30,7 @@ namespace DatabaseContext
 
         public IDbConnection Initialize(Database db)
         {
-            string connectionString = "";
+            string connectionString;
             switch (DbType)
             {
                 case DatabaseType.MySql:
