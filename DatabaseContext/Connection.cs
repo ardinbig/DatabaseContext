@@ -1,28 +1,44 @@
 ﻿using MySql.Data.MySqlClient;
+using Npgsql;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using Oracle.ManagedDataAccess.Client;
-using Npgsql; // Add this for PostgreSQL
 
 namespace DatabaseContext
 {
+    /// <summary>
+    /// Database connection class
+    /// </summary>
     public class Connection : IConnection
     {
+        /// <summary>
+        /// Database connection instance
+        /// </summary>
         private static readonly Lazy<Connection> _con = new Lazy<Connection>(() => new Connection());
 
+        /// <summary>
+        /// Returns the instance of the database connection
+        /// </summary>
         public static Connection Instance => _con.Value;
 
         /// <summary>
-        /// Connexion à la base de données
+        /// Returns the instance of the database connection
         /// </summary>
         public IDbConnection Get { get; private set; }
 
         /// <summary>
-        /// Type de base de données sur laquelle se connecter
+        /// Database type
         /// </summary>
         public DatabaseType DbType { get; set; }
 
+        /// <summary>
+        /// Returns the instance of the database connection
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="NotSupportedException"></exception>
         public IDbConnection Initialize(Database db)
         {
             if (db == null)

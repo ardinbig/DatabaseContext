@@ -2,13 +2,16 @@
 
 namespace DatabaseContext
 {
+    /// <summary>
+    /// Represents a connection to a database.
+    /// </summary>
     public interface IConnection
     {
         /// <summary>
-        /// Retourne l'instance de la connexion à la base de données
+        /// Initializes a connection to the specified database.
         /// </summary>
-        /// <param name="db"></param>
-        /// <returns></returns>
+        /// <param name="db">The database to connect to.</param>
+        /// <returns>An initialized database connection.</returns>
         IDbConnection Initialize(Database db);
     }
 }
