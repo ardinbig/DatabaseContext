@@ -6,24 +6,10 @@ namespace DatabaseContext
     {
         public Database() { }
 
-        private string _server = "localhost";
         private string _dbName = "";
         private string _user = "";
-        private string _password = "";
-        private int _port = 0;
 
-        public string Server
-        {
-            get
-            {
-                return _server;
-            }
-
-            set
-            {
-                _server = value;
-            }
-        }
+        public string Server { get; set; } = "localhost";
 
         public string DbName
         {
@@ -57,30 +43,8 @@ namespace DatabaseContext
             }
         }
 
-        public string Password
-        {
-            get
-            {
-                return _password;
-            }
+        public string Password { get; set; } = "";
 
-            set
-            {
-                _password = value;
-            }
-        }
-
-        public int Port
-        {
-            get
-            {
-                return _port;
-            }
-
-            set
-            {
-                _port = value;
-            }
-        }
+        public int Port { get; set; } = 0;
     }
 }
